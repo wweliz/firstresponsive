@@ -12,23 +12,51 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Playfair+Display:700,400italic" type="text/css">
+		<link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="../bower_components/modernizr/modernizr.js"></script>
+    <script src="scripts/picturefill.min.js"></script>
     <!-- endbuild -->
   </head>
 
   <body>
     <div class="main-container">
-    	<h1>This header is amazing!</h1>
-    	<h3>This is my video</h3>
-    	<iframe width="640" height="360" src="//www.youtube.com/embed/mpV7aWtvN8k" frameborder="0" allowfullscreen></iframe>
-    	<p>one html/css project with one example of each of the following: <br>1. modernizr (custom build if you want), http://modernizr.com/ <br>2. PictureFill polyfill, https://github.com/scottjehl/picturefill <br>3. FitText.js http://fittextjs.com/ <br>4. FitVids.js http://fitvidsjs.com/<br>5. jQuery show/hide using resize</p>
+    	<h1>Welcome to the Responsive Jungle!</h1>
 
-		<div class="square"></div>
-		<div class="circle"></div> 
-  </div>
+    	<h2>Utilizing the FitText jQuery Plug-In</h2><hr>
+    	<p>FitText is a jQuery plug-in that enables you to create fluidly scaling headlines hat fill the width of a parent element; in essence, it makes font sizes flexible. Check out FitText in action by resizing the browser window and looking at this page's headline.</p>
+
+    	<h2>Utilizing the FitVids jQuery Plug-In</h2><hr>
+    	<p>FitVids is a jQuery plug-in that allows videos to fluidly resize. Check out FitVids in action on the video below.</p>
+    	<div class="myvideo">
+    		<iframe src="//www.youtube.com/embed/mpV7aWtvN8k" frameborder="0" allowfullscreen></iframe>
+    	</div>
+
+    	<h2>Adding and Removing Elements Using Resize Functions</h2><hr>
+    	<p>You can use a Javascript resize function to add and remove elements from the page. Similar to a media query, these functions can set upper and lower limits on the browser window width that determine whether or not an element will be shown.</p>
+    	<p>Resizing the browser window to smaller than 960 pixels wide will cause the cool cat gif below to disappear.</p>
+			<img class="catvideo" src="http://media.tumblr.com/38bd4f46554fc46b1bea820a3013c543/tumblr_inline_ms3du28jbi1qz4rgp.gif">
+
+    	<h2>Utilizing the Picturefill Polyfill</h2><hr>
+    	<p>The HTML picture element is, in its simplest form, a container for other elements. The beauty of picture is that it allows the developer to serve different versions of an image based on media queries and/or support for a particular image format. It is useful when an image source exists in multiple densities, or when a responsive design (or art direction) calls for a different images on some types of screens.</p>
+    	<p>The picture element is composed of two tags: <strong>source</strong>, for selecting which image to display, and <strong>img</strong>, for backward compatibility. The source element has three attributes available:
+    		<li><strong>srcset:</strong> Specifies the URL of the image you want to show; allows for multiple URLs separated by a comma. Each URL can also be paired with a screen resolution or min-width.</li>
+    		<li><strong>media:</strong> If the media query evaluates to true, the paired image specified in the srcset attribute will be displayed.</li>
+    		<li><strong>sizes:</strong> Specifies the set of intrinsic sizes (multiple sizes separated by commas) for the sources described in the srcset.</li>
+    	</p>	
+    	<p>Picturefill is a JavaScript polyfill that enables support for the picture element ()and associated features in browsers that do not yet support them, so you can start using them today!</p>
+    	<blockquote>A polyfill is a piece of code (in this case, JavaScript) or a plugin that provides the technology that you, the developer, expect the browser to provide natively.</blockquote>
+    	<p>Because the image is set to have width equal to 100% of the main container, it will scale larger or smaller as you resize the browser window. When the browser window hits the specified breakpoint (set by the media query), it will display a different image.</p>
+    	<picture>
+				<source class="pic" srcset="http://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Berlin_reichstag_west_panorama_2.jpg/1280px-Berlin_reichstag_west_panorama_2.jpg" media="(min-width: 1000px)">
+				<source class="pic" srcset="http://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Berlin_reichstag_CP.jpg/1024px-Berlin_reichstag_CP.jpg" media="(min-width: 800px)">
+				<source class="pic" srcset="http://www.viaggiovero.com/img/berlino_cupola.jpg">
+				<img class="pic" srcset="http://www.viaggiovero.com/img/berlino_cupola.jpg">
+			</picture>
+
+  	</div>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
@@ -49,7 +77,6 @@
     <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/jquery.fittext.js"></script>
     <script src="scripts/jquery.fitvids.js"></script>
-    <script src="scripts/picturefill.min.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 	</body>
